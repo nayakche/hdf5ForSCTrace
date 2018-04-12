@@ -1,1 +1,2 @@
-nothing
+script:
+  - echo "Do nothing as of now!"
