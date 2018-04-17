@@ -14,6 +14,10 @@ matrix:
       env:
          - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
 
+after_install:
+   - export CXX=g++-6
+   - export CC=gcc-6
+
 script:
   - echo "Do nothing as of now!"
-  - gcc-6 --version
+  - g++-6 --version
