@@ -21,3 +21,4 @@ before_script:
 script:
   - echo "Do nothing as of now!"
   - g++-7 --version
+  - g++ --version
