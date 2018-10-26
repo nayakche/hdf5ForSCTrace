@@ -1,0 +1,49 @@
+# Notes:
+#   - Minimal appveyor.yml file is an empty file. All sections are optional.
+#   - Indent each level of configuration with 2 spaces. Do not use tabs!
+#   - All section names are case-sensitive.
+#   - Section names should be unique on each level.
+
+#---------------------------------#
+#      general configuration      #
+#---------------------------------#
+
+# version format
+#version: 1.0.{build}
+
+# you can use {branch} name in version format too
+# version: 1.0.{build}-{branch}
+
+# branches to build
+branches:
+  # whitelist
+  only:
+    - master
+#    - production
+
+  # blacklist
+  except:
+    - temp
+
+# Build worker image (VM template)
+image: Visual Studio 2015
+
+# scripts that are called at very beginning, before repo cloning
+init:
+  - git config --global core.autocrlf input
+
+# clone directory
+clone_folder: c:\projects\myproject
+
+# to add several platforms to build matrix:
+platform:
+  - x86
+#  - Any CPU
+
+# to run your custom scripts instead of automatic MSBuild
+build_script:
+  - echo "I am in build_script phase!"
+  
+# scripts to run after build (working directory and environment changes are persisted from the previous steps)
+after_build:
+  - echo "I am in after_build phase!"
